@@ -59,8 +59,7 @@ export default class HomeMaster extends Component {
                         <li><Link to="/billing">Billing</Link></li>
                     </ConditionalDisplay>
                     <li><Link to="settings/rab_saas_site">Settings</Link></li>
-                    {/*<li><Link to="users/users">Users</Link></li>*/}
-                    <li><Link to="users">Users</Link></li>
+                    <li><Link to="users/users">Users</Link></li>
                     <li><Link to="translation/preview">Translations</Link></li>
                     <li className="divider" />
                     <li role="button"><a onClick={this.props.logout}>Logout</a></li>

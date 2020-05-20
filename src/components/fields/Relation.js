@@ -6,7 +6,7 @@ class Relation extends Component {
 
   constructor(props) {
     super(props);
-    
+
     this.state = {
       value:props.value,
       options:[]
@@ -94,10 +94,8 @@ class Relation extends Component {
     if(this.props.isFirestore&&this.props.options.isValuePath){
       //Firestore
       //alert("FIRESORE:"+event.target.value);
-      if(event.target.value!=""){
-        var value=firebase.app.firestore().doc(event.target.value);
-      }
-      
+
+      var value=firebase.app.firestore().doc(event.target.value);
       this.setState({value: value});
       this.props.updateAction(this.props.theKey,value,false,"reference");
     }else{
@@ -120,15 +118,7 @@ class Relation extends Component {
   }
 
   createOption(value){
-    return (<option value={value.value}>{this.capitalizeFirstLetter(value.name)}</option>) 
-  }
-
-  showUncategorized(){
-    if(this.props.isFirestore&& !(typeof this.props.value === 'object' && this.props.value !== null) ){
-      return (<option value={""}>Uncategorized</option>) 
-    }else{
-      return (<span></span>) 
-    }
+    return (<option value={value.value}>{this.capitalizeFirstLetter(value.name)}</option>)
     
   }
 
@@ -137,7 +127,6 @@ class Relation extends Component {
             <div className={Config.designSettings.editElementDivClass}>
                 <label className="control-label"></label>
                 <select className={this.props.class+" form-control"} value={this.props.isFirestore&&this.props.options.isValuePath?"/"+this.state.value.path:this.state.value} onChange={this.handleChange}>
-                  {this.showUncategorized()}
                   {this.state.options.map((val)=>{
                     return this.createOption(val)
                   })}

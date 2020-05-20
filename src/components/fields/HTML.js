@@ -25,7 +25,7 @@ class HTML extends Component {
           <div className={Config.designSettings.editElementDivClass}>
               <label className="control-label"></label>
               <Editor
-                //apiKey={Config.tinyMCEAPIKey}
+                apiKey={Config.tinyMCEAPIKey}
                 initialValue={this.state.value}
                 init={{
                   plugins: 'link image code table',

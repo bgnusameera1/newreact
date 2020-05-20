@@ -75,8 +75,7 @@ export default class NavBarDefault extends Component {
                         <li><Link to="/billing">{T.td("Billing")}</Link></li>
                     </ConditionalDisplay>
                     <li><Link to="settings/rab_saas_site">{T.td("Settings")}</Link></li>
-                    {/*<li><Link to="users/users">{T.td("Users")}</Link></li>*/}
-                    <li><Link to="users">{T.td("Users")}</Link></li>
+                    <li><Link to="users/users">{T.td("Users")}</Link></li>
                     <li><Link to="translation/preview">{T.td("Translations")}</Link></li>
                     <li className="divider" />
                     <li role="button"><a onClick={this.handleLogout}>{T.td("Logout")}</a></li>

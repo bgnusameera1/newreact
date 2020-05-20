@@ -19,7 +19,6 @@ import SubmitScreen from './containers/Builder/Submit'
 import Create from './containers/Builder/Create'
 import Preview from './containers/Builder/Preview'
 import Billing from './containers/Builder/Billing'
-import Users from './containers/Builder/Users'
 
 //CROSS USAGE - change on switch
 /**
@@ -82,9 +81,8 @@ class Admin extends Component {
             <Route currentLangData={this.props.currentLangData} path="/translations/:sub" loadedPath="/translations/" hideHamburger={true} resetEditPath={true} component={Fireadmin}/>
             <Route currentLangData={this.props.currentLangData} path="/settings" loadedPath="/settings/" hideHamburger={true} resetEditPath={true} component={Fireadmin}/>
             <Route currentLangData={this.props.currentLangData} path="/settings/:sub" loadedPath="/settings/" hideHamburger={true} resetEditPath={true} component={Fireadmin}/>
-            {/*<Route currentLangData={this.props.currentLangData} path="/users" loadedPath="/users/" tableHeaders={["email","numOfApps","userImage"]} resetEditPath={true} hideHamburger={true} component={Fireadmin}/>
-            <Route currentLangData={this.props.currentLangData} path="/users/:sub" loadedPath="/users/" tableHeaders={["email","numOfApps","userImage"]} resetEditPath={true} hideHamburger={true} component={Fireadmin}/>*/}
-            <Route currentLangData={this.props.currentLangData} path="/users" component={Users}></Route>
+            <Route currentLangData={this.props.currentLangData} path="/users" loadedPath="/users/" tableHeaders={["email","numOfApps","userImage"]} resetEditPath={true} hideHamburger={true} component={Fireadmin}/>
+            <Route currentLangData={this.props.currentLangData} path="/users/:sub" loadedPath="/users/" tableHeaders={["email","numOfApps","userImage"]} resetEditPath={true} hideHamburger={true} component={Fireadmin}/>
 
              {/* APP ADMIN */}
 

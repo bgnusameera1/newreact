@@ -61,13 +61,11 @@ export default class Submit extends Component {
             app: null,
             name: "",
             id: "",
-            appImage:"",
-            rabid: ""
+            appImage:""
         }
         this.submitApp = this.submitApp.bind(this);
         this.getSubmitContent = this.getSubmitContent.bind(this);
         this.startDownload = this.startDownload.bind(this);
-        this.generateEmailContent = this.generateEmailContent.bind(this);
     }
 
 
@@ -80,7 +78,6 @@ export default class Submit extends Component {
               name:snapshot.val().name,
               id:snapshot.val().id,
               appImage:snapshot.val().appImage,
-              rabid: snapshot.val().rabid
             })
         });
     }
@@ -178,21 +175,12 @@ export default class Submit extends Component {
         }
     }
 
-    generateEmailContent(){
-        var subject = "I want my iPhone app made";
-        var body = "Hello, I want you to make my iPhone app with ID: "+this.state.rabid+"\n";
-        var subBody = "I have / don't have Apple Developer Account."
-
-        return "?subject="+subject+"&body="+encodeURIComponent(body)+encodeURIComponent(subBody);
-    }
-
     createTheiPhoneContent(){
         return (
             <div>
                
                 <div className="col-md-12">
-                <p><a className={"btn "+Config.designSettings.submitButtonClass} href={"mailto:"+Config.adminConfig.adminUsers[0]+this.generateEmailContent()}>Make my iPhone App</a></p>    
-                   {/*<hr/>
+                   <hr/>
                     <p>After you have received the email you should do the following tasks in order to publish your app.</p>
                     <br/>
 
@@ -207,7 +195,7 @@ export default class Submit extends Component {
                                     We will notify you for additional information.<br/>
                                     Let us know if you have Apple Developer account.
                                 </p>
-                   </div>*/}
+                            </div>
                             
                             {/*<div>
                                 <h4><b>Step 3.2. Install Node and Expo CLI</b></h4>
@@ -266,63 +254,37 @@ export default class Submit extends Component {
         return (
         <div className="main-panel">
             <div className="container">
-            <NavBar  currentLangData={this.props.route.currentLangData}></NavBar>{
-                Config.adminConfig.adminUsers.length > 0 ?
-                <Wizzard 
-                    title={this.state.name?T.td("App Submit")+": "+this.state.name:T.td("App Submit")}
-                    steps={[{
-                        name:"submit",
-                        icon:"check_circle_outline",
-                        title:T.td("Step 1. Submit"),
-                        active:"active",
-                        label1:T.ts("Submit you app for compilation"),
-                        label2:T.ts("We will compile your app and send you email when done."),
-                        content:this.getSubmitContent()
-                    },
-                    {
-                        name:"android",
-                        icon:"android",
-                        title:T.td("Step 2. Publish Android"),
-                        active:"active",
-                        label1:T.ts("Shortly after submit, you will get an email"),
-                        label2:T.ts("With link to the Android app that you will be able to publish on Google Play"),
-                        content:this.createTheiAndroidContent()
-                    },
-                    {
-                        name:"ios",
-                        icon:"phone_iphone",
-                        title:T.td("Step 3. Publish iPhone"),
-                        active:"active",
-                        label1:T.ts("Shortly after submit"),
-                        label2:T.ts("You will get an email when you can start with the steps bellow."),
-                        content:this.createTheiPhoneContent()
-                    }]}
-                />
-            :
+            <NavBar  currentLangData={this.props.route.currentLangData}></NavBar>
             <Wizzard 
-                    title={this.state.name?T.td("App Submit")+": "+this.state.name:T.td("App Submit")}
-                    steps={[{
-                        name:"submit",
-                        icon:"check_circle_outline",
-                        title:T.td("Step 1. Submit"),
-                        active:"active",
-                        label1:T.ts("Submit you app for compilation"),
-                        label2:T.ts("We will compile your app and send you email when done."),
-                        content:this.getSubmitContent()
-                    },
-                    {
-                        name:"android",
-                        icon:"android",
-                        title:T.td("Step 2. Publish Android"),
-                        active:"active",
-                        label1:T.ts("Shortly after submit, you will get an email"),
-                        label2:T.ts("With link to the Android app that you will be able to publish on Google Play"),
-                        content:this.createTheiAndroidContent()
-                    }]}
-                />
-
-            }
-            
+            title={this.state.name?T.td("App Submit")+": "+this.state.name:T.td("App Submit")}
+            steps={[{
+                name:"submit",
+                icon:"check_circle_outline",
+                title:T.td("Step 1. Submit"),
+                active:"active",
+                label1:T.ts("Submit you app for compilation"),
+                label2:T.ts("We will compile your app and send you email when done."),
+                content:this.getSubmitContent()
+            },
+            {
+                name:"android",
+                icon:"android",
+                title:T.td("Step 2. Publish Android"),
+                active:"active",
+                label1:T.ts("Shortly after submit, you will get an email"),
+                label2:T.ts("With link to the Android app that you will be able to publish on Google Play"),
+                content:this.createTheiAndroidContent()
+            },
+            {
+                name:"ios",
+                icon:"phone_iphone",
+                title:T.td("Step 3. Publish iPhone"),
+                active:"active",
+                label1:T.ts("Shortly after submit"),
+                label2:T.ts("You will get an email when you can start with the steps bellow."),
+                content:this.createTheiPhoneContent()
+            }]}
+            />
             </div>
         </div>
         )

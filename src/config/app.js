@@ -392,6 +392,7 @@ defaultExport.buildAccountPassword="AppBuild2";
 
 defaultExport.activeTranslation={"dynamic":{},"static":{}}
 
+defaultExport.tinyMCEAPIKey="22cwjj0ahtz5zze4rv0mzizljuzfxkxu758941fql7k6sn6s";
 
 export default defaultExport;
 
